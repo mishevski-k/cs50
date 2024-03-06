@@ -1,5 +1,5 @@
-#include <cs50.h>
 #include <stdio.h>
+#include "../lib/cs50.h"
 
 
 int main(void){
