@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../../lib/cs50.h"
+#include <cs50.h>
 
 int main(void){
     int x = get_int("What's x? ");
