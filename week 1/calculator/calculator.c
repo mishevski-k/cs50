@@ -1,4 +1,4 @@
-#include "../lib/cs50.h"
+#include "../../lib/cs50.h"
 #include <stdio.h>
 int add(int x, int y);
 
