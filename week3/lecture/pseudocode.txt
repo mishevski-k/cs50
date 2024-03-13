@@ -35,3 +35,12 @@ Repeat n times
             Swap them
     If no Swaps
         Quit
+
+//Merge Sort 
+
+if only one number
+    Quit
+Else    
+    Sort left half of numbers
+    Sort right half of numbers
+    Merge sorted halves
