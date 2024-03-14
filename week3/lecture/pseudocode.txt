@@ -1,0 +1,46 @@
+
+// Linear Search 
+
+for each door from left to right
+    if 50 is behind door
+        Return true
+Return false 
+
+for i from 0 n-1
+    if 50 is behind doors[i]
+        Return true
+Return false
+
+// Binary Search
+
+if no doors left
+    Return false
+if 50 is behind middle door
+    Return true
+Else If 50 < middle door 
+    Search left half
+Else If 50 > middle door
+    Search right half
+
+//Selection Sort
+
+For i from 0 to n-1
+    Find smallest number between numbers[i] and numbers[n-1]
+    Swap smallest numbers with numbers[i]
+
+//Bubble Sort
+Repeat n times
+    For i from - to n-2
+        If numbers[i] and numbers[i+1] out of order
+            Swap them
+    If no Swaps
+        Quit
+
+//Merge Sort 
+
+if only one number
+    Quit
+Else    
+    Sort left half of numbers
+    Sort right half of numbers
+    Merge sorted halves
