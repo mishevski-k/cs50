@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+
+            const restoreChoices = () => {
+                btns = document.querySelectorAll(".multiple-choice-btn");
+
+                for(btn of btns) {
+                    if(btn.classList.contains("bg-danger")){
+                        btn.classList.remove("bg-danger");
+                    }else if(btn.classList.contains("bg-success")){
+                        btn.classList.remove("bg-success");
+                    }
+                }
+
+                let correctMessage = document.querySelector("#choice-correct");
+                let incorrectMessage = document.querySelector("#choice-incorrect");
+                correctMessage.style.display = 'none';
+                incorrectMessage.style.display = 'none';
+            }
+
+            const restoreFreeResponse = () => {
+                btn = document.querySelector("#free-response-btn");
+                response = document.querySelector("#free-response");
+
+                if(btn.classList.contains("bg-danger")){
+                    btn.classList.remove("bg-danger");
+                }
+                
+                if(btn.classList.contains("bg-success")){
+                    btn.classList.remove("bg-success");
+                }
+
+                if(response.classList.contains("border-danger")){
+                    response.classList.remove("border-danger");
+                }
+                
+                if(response.classList.contains("border-success")){
+                    response.classList.remove("border-success");
+                }
+
+                let correctMessage = document.querySelector("#free-response-correct");
+                let incorrectMessage = document.querySelector("#free-response-incorrect");
+                correctMessage.style.display = 'none';
+                incorrectMessage.style.display = 'none';
+            }
+
+            const app = () => {
+                multipleChoiceBtns = document.querySelectorAll(".multiple-choice-btn");
+            
+                for(btn of multipleChoiceBtns){
+                    btn.addEventListener("click", (event) => {
+                        restoreChoices();
+                        
+                        if(event.target.innerText == 'HTML'){
+                            event.target.classList.add("bg-success")
+                            let correctMessage = document.querySelector("#choice-correct");
+                            correctMessage.style.display = 'inline';
+                        }else{
+                            event.target.classList.add("bg-danger")
+                            let incorrectMessage = document.querySelector("#choice-incorrect");
+                            incorrectMessage.style.display = 'inline';
+                        }
+
+                    });
+                }
+
+                freeResponseBtn = document.querySelector("#free-response-btn");
+
+                freeResponseBtn.addEventListener("click", (event) => {
+                    restoreFreeResponse();
+                    response = document.querySelector("#free-response");
+
+                    if(response.value.toLowerCase() === 'quicksort'){
+                        freeResponseBtn.classList.add("bg-success");
+                        response.classList.add("border-success");
+                        let correctMessage = document.querySelector("#free-response-correct");
+                        correctMessage.style.display = 'inline';
+                    }else{
+                        freeResponseBtn.classList.add("bg-danger");
+                        response.classList.add("border-danger");
+                        let incorrectMessage = document.querySelector("#free-response-incorrect");
+                        incorrectMessage.style.display = 'inline';
+                    }
+
+                });
+            }
+
+            addEventListener("DOMContentLoaded", app);
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Which of this is not a programming language?</h3>
+                <div>
+                    <button class="multiple-choice-btn" id="java">Java</button>
+                    <button class="multiple-choice-btn" id="javascript">Javascript</button>
+                    <button class="multiple-choice-btn" id="c">C</button>
+                    <button class="multiple-choice-btn" id="pascal">Pascal</button>
+                    <button class="multiple-choice-btn" id="html">HTML</button>
+                </div>
+                <span class="text-danger message-text" id="choice-incorrect">Incorrect</span>
+                <span class="text-success message-text" id="choice-correct">Correct!</span>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>If you need to sort a very large list of integers (billions), what eﬃcient sorting algorithm would be yourbest bet?</h3>
+                <input autocomplete="off" autofocus type="text" name="free-response" id="free-response">
+                <button id="free-response-btn">Check Answer</button>
+                <br>
+                <span class="text-danger message-text" id="free-response-incorrect">Incorrect</span>
+                <span class="text-success message-text" id="free-response-correct">Correct!</span>
+            </div>
+        </div>
+    </body>
+</html>
