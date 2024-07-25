@@ -1,0 +1,11 @@
+Pages: index.html about.html contact.html projects.html
+
+Custom Classes: active-page ,  contact-description, banner-image
+Custom Ids: contact-btn, contact-form
+Css properties used: color, background-color, padding, border-radius, border, margin, display, font-weight, transition, margin-bottom, width
+
+Tags: <nav> <div> <a> <img> <button> <span> <ul> <li> <form> <h1> <p> <label> <input>
+
+Javascript Logic: I choose a simple function using javascript to alert the user when he tries to contact me, this is to simulate how a contact form would work without having any sending logic for the contact form
+
+this is a very quick implemtation from me, i got side tracked by some private matterns and havent been doing much studing, this is just barely to pass the problem set
