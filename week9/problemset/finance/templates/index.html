@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    CS50 Finance
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        {% if stocks %}
+        <div class="d-flex justify-content-center gap-3">
+            <p class="bg-secondary text-white p-2 rounded-2">Cash: {{ user["cash"]|usd }}</p>
+            <p class="bg-secondary text-white p-2 rounded-2">Total (Cash + Stocks) {{ grandTotal|usd }}:</p>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                    <tr>
+                        <td>{{ stock['symbol'] }}</td>
+                        <td>{{ stock['shares'] }}</td>
+                        <td>{{ stock['price']|usd }}</td>
+                        <td>{{ stock['total']|usd }}</td>
+                        <td>
+                            <a href="/buy?symbol={{ stock['symbol'] }}"><button class="btn btn-primary">Buy</button></a>
+                            <a href="/sell?symbol={{ stock['symbol'] }}"><button class="btn btn-warning text-white">Sell</button></a>
+                        </td>
+                    </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+            <h2>You currently dont hold any stocks!</h2><a href="/quote"><button class="btn btn-primary">Start trading</button></a>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        {% if quote %}
+            <h3>Name: <span class="text-small">{{ quote['symbol'] }}</span></h3>
+            <h3>Price: <span class="text-small">{{ quote['price']|usd }}</span></h3>
+            <a href="/buy?symbol={{quote['symbol']}}"><button class="btn btn-primary">Buy</button></a>
+        {% else %}
+            <h3>An error occured</h3>
+        {% endif %}
+    </div>
+{% endblock %}
