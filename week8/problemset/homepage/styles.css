@@ -1,0 +1,45 @@
+.active-page {
+    color: #E49B0F !important;
+}
+
+.text-orange {
+    color: #E49B0F;
+}
+
+.contact-description {
+    background-color: #E49B0F;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+}
+
+#contact-btn {
+    background-color: #E49B0F;
+    color: white;
+    border: none;
+    padding: 0.5rem 2rem;
+    margin: auto;
+    display: block;
+    border-radius: 25px;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+#contact-btn:hover {
+    background-color: #f7a50e;
+    transition: ease-in 0.5s;
+}
+
+#contact-form {
+    background-color: rgb(238, 232, 232);
+    width: 70%;
+    padding: 5%;
+    border-radius: 25px;
+    margin-bottom: 2rem;
+}
+
+.banner-image {
+    max-width: 450px;
+    border-radius: 5% 50% 50px 15px;
+    margin: 2rem 3rem;
+}

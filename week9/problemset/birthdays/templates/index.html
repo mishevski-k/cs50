@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="section">
+
+            <h2>Add a Birthday</h2>
+            <form accept="/" method="post">
+                <input autocomplete="off" autofocus placeholder="Name" name="name" type="text" required>
+                <input autocomplete="off" placeholder="Month" name="month"  type="number" required min="1" max="12">
+                <input autocomplete="off" placeholder="Day" name="day"  type="number" required min="1" max="31">
+                <button type="submit">Add Birthday</button>
+            </form>
+        </div>
+
+        <div class="section">
+
+            <h2>All Birthdays</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if birthdays and birthdays|length > 0 %}
+                        {% for birthday in birthdays %}
+
+                            <tr>
+                                <td>{{ birthday.name }}</td>
+                                <td>{{ birthday.month }}/{{ birthday.day }}</td>
+                                <td class="actions-columns">
+                                    <form  action="/delete" method="post">
+                                        <input name="id" value="{{birthday.id}}" readonly hidden>
+                                        <button type="submit" class="delete-btn">delete</button>
+                                    </form>
+                                    <a href="edit/?id={{ birthday.id }}"><button class="edit-btn">edit</button></a>
+                                </td>
+                            </tr>
+                        
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
